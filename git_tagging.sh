@@ -41,8 +41,8 @@ if [ -n "$last_tag" ]; then
 else
     tagName=$branch_name-$major_max.$minor_max.$patch_max
     echo "createing the tag $tagName on the branch ${BRANCH_NAME}"
-    $(git config --global user.email "charveepunia.nmims@gmail.com")
-    $(git config --global user.name "charvee11")
+    git config --global user.email "charveepunia.nmims@gmail.com"
+    git config --global user.name "charvee11"
     git tag -a $tagName $branch_name -m "Version $tagName"
     git push origin $tagName $branch_name
 fi
