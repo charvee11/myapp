@@ -33,7 +33,7 @@ if [ -n "$last_tag" ]; then
     fi
     echo 'Switching to new version:' $major_max'.'$minor_max'.'$patch_max''
     $(git config --global user.email "charvee.punia@mtwlabs.co.in")
-    echo 'listern' git config --global user.email
+    
     $(git config --global user.name "Charvee")
     $(git tag -a $branch_name-$major_max.$minor_max.$patch_max $branch_name -m "Version $major_max.$minor_max.$patch_max")
     echo 'Push tag to remote'
@@ -41,6 +41,8 @@ if [ -n "$last_tag" ]; then
 else
     tagName=$branch_name-$major_max.$minor_max.$patch_max
     echo "createing the tag $tagName on the branch ${BRANCH_NAME}"
+    $(git config --global user.email "charvee.punia@mtwlabs.co.in")
+    $(git config --global user.name "Charvee")
     git tag -a $tagName $branch_name -m "Version $tagName"
     git push origin $tagName $branch_name
 fi
