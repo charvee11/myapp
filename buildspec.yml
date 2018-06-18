@@ -8,6 +8,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - bash git_tagging.sh
       - mvn package
 artifacts:
   files:
