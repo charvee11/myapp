@@ -4,11 +4,11 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - bash git_tagging.sh
       - mvn test
   post_build:
     commands:
       - echo Build completed on `date`
-      - bash git_tagging.sh
       - mvn package
 artifacts:
   files:
