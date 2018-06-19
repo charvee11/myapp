@@ -5,7 +5,7 @@ env:
         BRANCH_NAME: "master"
         MAJOR_VERSION: "1"
         MINOR_VERSION: "0"
-        GIT_REPO: "git@github.com:charvee11/myapp.git"
+        GIT_REPO: "ssh:git@github.com:charvee11/myapp.git"
         
 phases:
   build:
