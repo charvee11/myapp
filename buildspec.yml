@@ -12,8 +12,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - bash git_tagging.sh
       - mvn test
+      - bash git_tagging.sh
   post_build:
     commands:
       - echo Build completed on `date`
