@@ -10,11 +10,22 @@ env:
         GIT_PASS: "Sarita@1964"
         
 phases:
+  install:
+    commands:
+      - apt-get update -y && apt-get install -y git
+  pre_build:
+    commands:
+      - echo "machine github.com" >> ~/.netrc
+      - echo "login $GIT_USER" >> ~/.netrc
+      - echo "password $GIT_PASS" >> ~/.netrc
+      - git clone -b $BRANCH_NAME $GIT_REPO    
   build:
     commands:
       - echo Build started on `date`
       - mvn test
+      - cd myapp
       - bash git_tagging.sh
+      - cd ..
   post_build:
     commands:
       - echo Build completed on `date`
